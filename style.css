@@ -1,0 +1,201 @@
+:root {
+  --red: #ff1644;
+  --black: #212121;
+}
+
+html, body {
+  background-color: #fce4ec !important;
+  min-width: 860px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.loading {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading svg {
+  pointer-events: none;
+  height: 80px;
+  animation: spin infinite 0.6s linear;
+}
+
+.root {
+  font-family: sans-serif;
+  margin: 32px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  max-width: 800px;
+  min-height: calc(100vh - 64px);
+  font-size: 18px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 40px;
+}
+
+.title i {
+  color: var(--red);
+}
+
+.title .add-btn {
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.actions .sort {
+  margin-left: 20px;
+}
+
+.actions .sort label,
+.actions .filter label {
+  color: #757575;
+  font-size: 0.8em;
+  margin-right: 4px;
+}
+
+.actions .sort select,
+.actions .filter select {
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+.actions .sort-type {
+}
+
+.actions .sort-type i {
+  padding: 8px;
+  color: var(--black);
+}
+
+.todo-list {
+  margin-top: 24px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin: 0 -8px;
+  transition: all ease-in-out 0.2s;
+  border-radius: 8px;
+}
+
+.todo-item:hover {
+  background-color: #FFCDD2;
+}
+
+.todo-item__right, .todo-item__left {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item__left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.todo-item__left label {
+  cursor: pointer;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-item__left label {
+  opacity: 1 !important;
+}
+
+.todo-item__left input {
+  opacity: 1 !important;
+}
+
+.todo-item__due-date-reminder {
+  margin-right: 32px;
+  border: 1px solid #ffa900;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 4px 16px;
+  font-size: 14px;
+}
+
+.todo-item__due-date-reminder i {
+  color: #ffa900;
+  margin-right: 8px;
+}
+
+.todo-item__btns i {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.todo-item__btns .edit-btn {
+  color: var(--black);
+}
+
+.todo-item__btns .delete-btn {
+  color: var(--red);
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-results img {
+  width: 320px;
+  height: auto;
+}
+
+.no-results-msg {
+  color: #757575;
+  font-size: 0.8em;
+};
+
+/* START: Override lib */
+.modal {
+  text-align: left;
+}
+
+.form-check-input:checked {
+  background-color: var(--black) !important;
+  border-color: var(--black) !important;
+}
+/* END: Override lib */

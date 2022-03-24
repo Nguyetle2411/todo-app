@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div class="root">
+    <div class="header">
+      <div class="title">
+        <i class="fa fa-check-square" aria-hidden="true"></i>
+        <span>My Todo List</span>
+        <i class="add-btn fa fa-plus" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#addEditModal"
+          onclick="handleClickAddBtn()"></i>
+      </div>
+    </div>
+    <class class="body">
+      <div class="actions">
+        <div class="filter">
+          <label for="filter">Filter</label>
+          <select name="filter" id="filter">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="active">Active</option>
+            <option value="hasDueDate">Has due date</option>
+          </select>
+        </div>
+
+        <div class="sort">
+          <label for="sort">Sort</label>
+          <select name="sort" id="sort">
+            <option value="createdDate">Added date</option>
+            <option value="dueDate">Due date</option>
+          </select>
+        </div>
+
+        <div class="sort-type">
+          <i id="sort-type--asc" class="sort-type--asc fa fa-sort-amount-asc" aria-hidden="true" onclick="handleClickAsc()"></i>
+          <i id="sort-type--desc" class="sort-type--desc fa fa-sort-amount-desc hide" aria-hidden="true" onclick="handleClickDesc()"></i>
+        </div>
+      </div>
+
+      <div class="todo-list" id="todo-list">
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addEditModal" tabindex="-1" aria-labelledby="addEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addEditModalLabel">Add Todo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-4">
+              <form id="todo-form" class="needs-validation" novalidate>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="submit-btn" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="loading" class="loading hide">
+        <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+          y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+          <path fill="#ff1644" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+      c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50"
+              to="360 50 50" repeatCount="indefinite" />
+          </path>
+          <path fill="#ff1644" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+      c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+              to="-360 50 50" repeatCount="indefinite" />
+          </path>
+          <path fill="#ff1644" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+      L82,35.7z">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="2s" from="0 50 50"
+              to="360 50 50" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Main JS -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
