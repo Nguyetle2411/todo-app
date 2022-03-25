@@ -167,7 +167,7 @@ function toggleStatus(id) {
   if (selectedItem.status === "active" || selectedItem.status === "hasDueDate") {
     selectedItem.status = "completed";
   } else {
-    const isDue = isDue(selectedItem.dueDate);
+    const isDue = checkDue(selectedItem.dueDate);
 
     selectedItem.status = isDue ? "hasDueDate" : "active";
   }
